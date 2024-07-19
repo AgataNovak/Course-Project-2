@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "course-work-2"
+version = "0.1.0"
+description = ""
+authors = ["Agata <agagor1961@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.lint.dependencies]
+isort = "^5.13.2"
+black = "^24.4.2"
+flake8 = "^7.1.0"
+mypy = "^1.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
