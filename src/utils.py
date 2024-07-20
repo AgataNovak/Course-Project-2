@@ -34,7 +34,10 @@ class ApiConnect(Parser):
         while self.params.get("page") != pages + 1:
             response = requests.get(self.url, headers=self.headers, params=self.params)
             if response.status_code != 200:
-                return f"Проблема с подключением к стороннему API. Код: {response.status_code}"
+                print(
+                    f"Проблема с подключением к стороннему API. Код: {response.status_code}"
+                )
+                return []
             vacancies = response.json()["items"]
             self.vacancies_list.extend(vacancies)
             self.params["page"] += 1
@@ -313,9 +316,10 @@ class VacanciesDataBase(FileWriting):
 
 
 # vacancies_response = ApiConnect()
-# data_for_json_file = Vacancy.json_format(5)
+# vacancies_response.parsing(1)
+# data_for_json_file = Vacancy.json_format(1)
 # #
-writer = VacanciesDataBase("data.json")
+# writer = VacanciesDataBase("data.json")
 
 # data = [
 #     {
@@ -348,6 +352,7 @@ writer = VacanciesDataBase("data.json")
 #                     "Поиск и привлечение потенциальных клиентов. Презентация наших услуг."
 #                     " Формирование воронки продаж. Подготовка коммерческих предложений и заключение договоров."
 #                     " Укрепление и развитие...")
+# print(vacancy_1.__repr__())
 #
 # vacancy_2 = Vacancy("Менеджер по развитию малюсенького бизнеса", "https://api.hh.ru/vacancies/102753188?host=hh.ru",
 #                     1000, None, "Москва", "2024-06-26",

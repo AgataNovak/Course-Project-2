@@ -63,3 +63,4 @@ def main():
         print(vacancy)
 
     os.remove("../data/filtered_vacancies.json")
+    os.remove("../data/vacancies.json")
